@@ -1,5 +1,22 @@
 import cart from "./cart.png"
-function App() {
+import React, { Component } from 'react';
+import Item from './components/Item'
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+    state = {  }
+    render() { 
+        return ( 
+<Item/>
+         );
+    }
+}
+ 
+export default App;
+
+function App1() {
     if (window.location.pathname === "/cart") {
         return <div>
             <button onClick={() => window.location.href = "/"}>Books</button>
@@ -71,5 +88,3 @@ function App() {
         </div>
     );
 }
-
-export default App;

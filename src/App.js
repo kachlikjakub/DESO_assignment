@@ -1,15 +1,28 @@
 import cart from "./cart.png"
 import React, { Component } from 'react';
-import Item from './components/Item'
+import AvailableProducts from "./constants/AvailableIProducts";
+import TopBar from "./components/TopBar";
+import PageContent from "./components/PageContent";
 
 class App extends Component {
     constructor(props) {
         super(props);
+        let availableWindows = ["Book", "Cart"]
+        let availableProducts = AvailableProducts
+        availableProducts.forEach(product => {
+            product.inCart = false;
+        });
     }
-    state = {  }
+    state = { 
+        activeWindow : "Book",
+        products : this.availableProducts
+     }
     render() { 
         return ( 
-<Item/>
+            <>
+            <TopBar/>
+            <PageContent/>
+            </>
          );
     }
 }

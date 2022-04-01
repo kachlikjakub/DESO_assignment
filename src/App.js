@@ -4,24 +4,42 @@ import AvailableProducts from "./constants/AvailableIProducts";
 import TopBar from "./components/TopBar";
 import PageContent from "./components/PageContent";
 
+let availableProducts = AvailableProducts 
+
 class App extends Component {
     constructor(props) {
         super(props);
-        let availableWindows = ["Book", "Cart"]
-        let availableProducts = AvailableProducts
         availableProducts.forEach(product => {
             product.inCart = false;
         });
     }
+    
+
     state = { 
+        availableWindows : [{tag:"Book", name:"Book", image:null}, {tag:"Home", name:"My fancy book shop", image:null}, {tag:"Cart", name:"Cart", image:"/Users/jakubkachlik/applicant-test-react-master/src/cart.png"}],
         activeWindow : "Book",
-        products : this.availableProducts
+        products : availableProducts
      }
+
+    handleWindow = (tag) =>{
+this.setState({activeWindow: tag})
+    }
+
+    handleSelectedItem = (item, toRemove) =>{
+        let currentProducts = [...this.state.products]
+        currentProducts[currentProducts.indexOf(item)].inCart = true
+        this.setState({products: currentProducts})
+    }
+    componentDidMount(){
+        console.log(this.state.products)
+    }
+
+
     render() { 
         return ( 
             <>
-            <TopBar/>
-            <PageContent/>
+            <TopBar availableWindows={this.state.availableWindows} onSelect={this.handleWindow}/>
+            <PageContent activeWindow={this.state.activeWindow} products={this.state.products}/>
             </>
          );
     }

@@ -15,6 +15,7 @@ const AvailableProducts = [
     name: "Book1",
     description: "desc of book1",
     price: 100,
+    image: "book-black.jpg",
   },
   {
     id: 3,
@@ -23,6 +24,7 @@ const AvailableProducts = [
     name: "Book2",
     description: "desc of book2",
     price: 200,
+    image: "book-green.jpg",
   },
   {
     id: 4,
@@ -31,6 +33,7 @@ const AvailableProducts = [
     name: "Book3",
     description: "desc of book3",
     price: 400,
+    image: "book-red.jpg",
   },
   {
     id: 5,
@@ -39,6 +42,7 @@ const AvailableProducts = [
     name: "Book4",
     description: "desc of book4",
     price: 500,
+    image: "book-yellow.jpg",
   },
   {
     id: 6,
@@ -47,6 +51,7 @@ const AvailableProducts = [
     name: "Book4",
     description: "desc of book4",
     price: 500,
+    image: "book-yellow.jpg",
   },
 ];
 

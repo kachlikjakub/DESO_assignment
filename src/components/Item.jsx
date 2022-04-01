@@ -1,15 +1,30 @@
-import React from "react";
-
-function Item() {
+import React, { useState } from "react";
+function Item({ product, availablePcs }) {
+  const [numOfPcs, setNumOfPcs] = useState(0);
   return (
-    <div>
-      <img src=".././book-blue.jpg" />
-      <div>Blue book</div>
-      <div>Literally awesomeness itself with blue cover.</div>
-      <div>310 CZK</div>
-      <div>3 in stock</div>
-      <input type="number" />
-      <button>Add to cart</button>
+    <div className="book-card">
+      <img className="book-img" src={product.image} />
+      <p className="book-name">{product.name}</p>
+      <p className="book-description">{product.description}</p>
+      <div style={{ width: "100%" }}>
+        <p className="book-price">
+          {product.price} CZK ({availablePcs} available)
+        </p>
+        <div className="book-add-section">
+          <input
+            className="book-input"
+            style={{ width: "75px" }}
+            type="number"
+            value={numOfPcs}
+            onChange={(e) => {
+              setNumOfPcs(e.target.value);
+            }}
+            min={0}
+            max={availablePcs}
+          />
+          <button disabled={numOfPcs <= 0}>Add to cart</button>
+        </div>
+      </div>
     </div>
   );
 }

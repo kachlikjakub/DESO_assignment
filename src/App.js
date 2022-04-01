@@ -25,9 +25,14 @@ class App extends Component {
 this.setState({activeWindow: tag})
     }
 
-    handleSelectedItem = (item, toRemove) =>{
+    handleSelectedItem = (item, toRemove, amount) =>{
         let currentProducts = [...this.state.products]
-        currentProducts[currentProducts.indexOf(item)].inCart = true
+
+        for(var i=0; i < amount; i++){
+            let tmp = currentProducts.indexOf(currentProducts.find(thing => thing.code == item.code && thing.inCart == toRemove))
+            currentProducts[tmp].inCart = !toRemove
+          }
+
         this.setState({products: currentProducts})
     }
     componentDidMount(){
@@ -39,7 +44,7 @@ this.setState({activeWindow: tag})
         return ( 
             <>
             <TopBar availableWindows={this.state.availableWindows} onSelect={this.handleWindow}/>
-            <PageContent activeWindow={this.state.activeWindow} products={this.state.products}/>
+            <PageContent activeWindow={this.state.activeWindow} products={this.state.products} onSelect={this.handleSelectedItem}/>
             </>
          );
     }

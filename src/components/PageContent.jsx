@@ -5,10 +5,10 @@ import ListOfItems from "./ListOfItems";
 function PageContent(props) {
   console.log(props);
   if (props.activeWindow == "Book") {
-    return <ListOfItems products={props.products} />;
+    return <ListOfItems products={props.products} onSelect={props.onSelect} />;
   }
   if (props.activeWindow == "Cart") {
-    return <Cart />;
+    return <Cart products={props.products} onSelect={props.onSelect} />;
   }
 }
 

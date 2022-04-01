@@ -17,9 +17,12 @@ function ListOfItems(props) {
         return (
           <Item
             key={product.code}
+            onSelect={props.onSelect}
             product={product}
             availablePcs={
-              props.products.filter((item) => item.code == product.code).length
+              props.products.filter(
+                (item) => item.code == product.code && item.inCart == false
+              ).length
             }
           />
         );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-function Item({ product, availablePcs }) {
+function Item({ onSelect, product, availablePcs }) {
   const [numOfPcs, setNumOfPcs] = useState(0);
   return (
     <div className="book-card">
@@ -22,7 +22,15 @@ function Item({ product, availablePcs }) {
             min={0}
             max={availablePcs}
           />
-          <button disabled={numOfPcs <= 0}>Add to cart</button>
+          <button
+            disabled={numOfPcs <= 0}
+            onClick={() => {
+              onSelect(product, false, numOfPcs);
+              setNumOfPcs(0);
+            }}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

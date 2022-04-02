@@ -2,18 +2,29 @@ import React from "react";
 import TopBarItem from "./TopBarItem";
 import ".././styles.css";
 
-function TopBar({ availableWindows, onSelect }) {
+function TopBar({ onSelect, availableWindows }) {
   return (
     <div className="navbar">
-      <TopBarItem
-        className="books-btn"
-        windows={availableWindows[0]}
-        onSelect={onSelect}
-      />
+      <div className="books-div">
+        {availableWindows.map((windows) => {
+          console.log(windows);
+          return (
+            <TopBarItem
+              className="books-btn"
+              windows={windows}
+              onSelect={onSelect}
+            />
+          );
+        })}
+      </div>
       <p>My book shop</p>
       <TopBarItem
         className="cart-btn"
-        windows={availableWindows[2]}
+        windows={{
+          tag: "Cart",
+          name: "Cart",
+          image: "/Users/jakubkachlik/applicant-test-react-master/src/cart.png",
+        }}
         onSelect={onSelect}
       />
     </div>

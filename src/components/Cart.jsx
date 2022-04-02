@@ -17,16 +17,16 @@ function Cart(props) {
   return (
     <table className="cart-list">
       <thead>
-        <tr>
-          <th>Product name</th>
-          <th>Number of items</th>
-          <th>Price</th>
+        <tr className="main-row">
+          <th className="name">Product name</th>
+          <th className="amount">Number of items</th>
+          <th className="price">Price</th>
         </tr>
         {unique.map((product) => {
           return (
-            <tr key={product.code}>
-              <td>{product.name}</td>
-              <td>
+            <tr key={product.code} className="book-row">
+              <td className="book-name">{product.name}</td>
+              <td className="amount">
                 {product.inStock}
                 <button
                   onClick={() => {
@@ -36,14 +36,14 @@ function Cart(props) {
                   Remove
                 </button>
               </td>
-              <td>{product.price * product.inStock} CZK</td>
+              <td className="price">{product.price * product.inStock} CZK</td>
             </tr>
           );
         })}
-        <tr>
-          <th>Total:</th>
-          <th></th>
-          <th>
+        <tr className="main-row">
+          <th className="name">Total:</th>
+          <th className="amount"></th>
+          <th className="price">
             {unique.reduce(
               (partialSum, a) => partialSum + a.price * a.inStock,
               0

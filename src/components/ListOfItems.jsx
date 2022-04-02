@@ -13,20 +13,19 @@ function ListOfItems(props) {
 
   return (
     <div className={"book-list"}>
-      {unique.map((product) => {
-        return (
-          <Item
-            key={product.code}
-            onSelect={props.onSelect}
-            product={product}
-            availablePcs={
-              props.products.filter(
-                (item) => item.code == product.code && item.inCart == false
-              ).length
-            }
-          />
-        );
-      })}
+      {unique.length <= 0 ? (
+        <h1>No Items in this section</h1>
+      ) : (
+        unique.map((product) => {
+          return (
+            <Item
+              onSelect={props.onSelect}
+              product={product}
+              availablePcs={product.inStock}
+            />
+          );
+        })
+      )}
     </div>
   );
 }

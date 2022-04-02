@@ -35,10 +35,15 @@ body {
   cursor: pointer;
 }
 
-.navbar > .books-btn {
+.navbar > .books-div > .books-btn {
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.navbar > .books-div {
+  display: flex;
   margin-left: 10px;
   margin-right: auto;
-  cursor: pointer;
 }
 
 .navbar > .cart-btn {
@@ -78,6 +83,7 @@ body {
 
 .book-list > .book-card {
   width: 350px;
+  height: 350px;
 
   display: flex;
   flex-wrap: wrap;
@@ -135,6 +141,8 @@ body {
 .cart-list {
   min-height: 0;
   min-width: 0;
+  width: 50%;
+  border-collapse: collapse;
 
   flex: 1;
   display: flex;
@@ -143,7 +151,7 @@ body {
   font-size: 25px;
 }
 
-.cart-list > .book-row {
+.cart-list > thead > .book-row {
   width: 100%;
 
   display: flex;
@@ -154,35 +162,35 @@ body {
   border-bottom: 1px solid lightgrey;
 }
 
-.cart-list > .book-row > .book-name {
+.cart-list > thead > .book-row > .book-name {
   width: 50%;
 }
 
-.cart-list > .book-row > .amount {
+.cart-list > thead > .book-row > .amount {
   width: 30%;
   text-align: center;
 }
 
-.cart-list > .book-row > .price {
+.cart-list > thead > .book-row > .price {
   width: 20%;
   text-align: right;
 }
 
-.cart-list > .main-row > .name {
+.cart-list > .main-row > thead > .name {
   width: 50%;
 }
 
-.cart-list > .main-row > .amount {
+.cart-list > .main-row > thead > .amount {
   width: 30%;
   text-align: center;
 }
 
-.cart-list > .main-row > .price {
+.cart-list > .main-row > thead > .price {
   width: 20%;
   text-align: right;
 }
 
-.cart-list > .main-row {
+.cart-list > thead > .main-row {
   width: 100%;
 
   display: flex;

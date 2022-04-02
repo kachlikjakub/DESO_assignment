@@ -16,7 +16,10 @@ class App extends Component {
     
 
     state = { 
-        availableWindows : [{tag:"Book", name:"Book", image:null}, {tag:"Home", name:"My fancy book shop", image:null}, {tag:"Cart", name:"Cart", image:"/Users/jakubkachlik/applicant-test-react-master/src/cart.png"}],
+        availableWindows : [
+            { tag: "Book", name: "Book", image: null },
+            { tag: "Magazine", name: "Magazine", image: null },
+          ],
         activeWindow : "Book",
         products : availableProducts
      }
@@ -43,8 +46,8 @@ this.setState({activeWindow: tag})
     render() { 
         return ( 
             <>
-            <TopBar availableWindows={this.state.availableWindows} onSelect={this.handleWindow}/>
-            <PageContent activeWindow={this.state.activeWindow} products={this.state.products} onSelect={this.handleSelectedItem}/>
+            <TopBar onSelect={this.handleWindow} availableWindows={this.state.availableWindows}/>
+            <PageContent activeWindow={this.state.activeWindow} availableWindows={this.state.availableWindows} products={this.state.products} onSelect={this.handleSelectedItem}/>
             </>
          );
     }

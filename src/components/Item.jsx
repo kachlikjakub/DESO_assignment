@@ -23,7 +23,7 @@ function Item({ onSelect, product, availablePcs }) {
             max={availablePcs}
           />
           <button
-            disabled={numOfPcs <= 0}
+            disabled={numOfPcs <= 0 || numOfPcs > availablePcs}
             onClick={() => {
               onSelect(product, false, numOfPcs);
               setNumOfPcs(0);

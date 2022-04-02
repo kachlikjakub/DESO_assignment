@@ -46,14 +46,15 @@ body {
   margin-right: auto;
 }
 
-.navbar > .cart-btn {
+.cart-btn {
   width: 45px;
   height: 45px;
   margin-left: auto;
   margin-right: 10px;
+  align-self: center;
 }
 
-.navbar > .cart-btn > .cart-img {
+.cart-img {
   width: 100%;
   height: 100%;
 }

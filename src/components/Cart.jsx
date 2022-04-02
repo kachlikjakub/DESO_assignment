@@ -1,7 +1,7 @@
 import React from "react";
 
 function Cart(props) {
-  console.log(props);
+  //rendering each title only once, computing unique items
   const unique = [
     ...new Map(
       props.products
@@ -9,6 +9,8 @@ function Cart(props) {
         .map((item) => [item.code, item])
     ).values(),
   ];
+
+  //added property inStock for each unique title to show how many items are available
   unique.forEach((uniqueBook) => {
     uniqueBook.inStock = props.products.filter(
       (item) => item.code === uniqueBook.code && item.inCart === true
@@ -30,6 +32,7 @@ function Cart(props) {
                 {product.inStock}
                 <button
                   onClick={() => {
+                    //removes all pieces of one product from cart
                     props.onSelect(product, true, product.inStock);
                   }}
                 >

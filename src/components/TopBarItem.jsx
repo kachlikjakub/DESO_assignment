@@ -3,18 +3,21 @@ import ".././styles.css";
 import picture from ".././cart.png";
 
 function TobBarItem({ className, windows, onSelect }) {
+  //render image navBar if image set
   if (windows.image) {
     return (
       <button
-        className={className}
+        className={"cart-btn"}
         onClick={() => {
           onSelect(windows.tag);
         }}
       >
-        <img className="cart-img" alt={"Cart"} src={picture} />
+        <img className="cart-img" alt={windows.name} src={picture} />
       </button>
     );
   }
+
+  //otherwise render navBar item as basic <p>
   return (
     <p
       className={className}
